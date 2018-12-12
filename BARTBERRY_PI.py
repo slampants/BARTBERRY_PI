@@ -102,7 +102,7 @@ GPIO.setmode(GPIO.BCM)                                                   # set y
 GPIO.setup(4, GPIO.IN)                                                   # set up your pins, children
 cb = ButtonHandler(4, misterManager, edge='rising', bouncetime=100)      # this sets up an instance of the ButtonHandler class for debouncing
 cb.start()                                                               # initiates your ButtonHandler instance
-os.system('sudo fbi -T 1 -a -noverbose RESOURCES/SPLASH.jpg')            # this calls the "fbi" module to show an image full-screen. I basically call this my splash page, which is what the TV shows when an episode isn't playing. By never actually killing this process, it'll show on screen immediately after the video player ends, without needing to re-call it
+os.system('sudo fbi -T 1 -noverbose RESOURCES/SPLASH.jpg')            # this calls the "fbi" module to show an image full-screen. I basically call this my splash page, which is what the TV shows when an episode isn't playing. By never actually killing this process, it'll show on screen immediately after the video player ends, without needing to re-call it
 os.system('sudo omxplayer /home/pi/Desktop/BARTBERRY_PI/RESOURCES/merryxmas.mp3 -o both')     # Plays the splash screen SFX
 GPIO.add_event_detect(4, GPIO.RISING, callback=cb)                       # starts listening for button presses and calls the cb ButtonHandler instance if it hears anything
 
